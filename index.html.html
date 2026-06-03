@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 年度年中 OKR 進度自評</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft JhengHei',sans-serif;background:#F5F5F5;color:#1a1a1a;min-height:100vh;padding:2rem 1rem 4rem}
+.page-wrap{max-width:580px;margin:0 auto}
+.form-hero{border-radius:12px;background:#E6F1FB;border:1px solid #B5D4F4;padding:1.5rem 1.75rem;margin-bottom:1.75rem}
+.form-hero-eyebrow{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:#185FA5;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.6rem}
+.form-hero-title{font-size:22px;font-weight:500;color:#0C447C;line-height:1.3;margin-bottom:.75rem}
+.form-hero-deadline{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#854F0B;background:#FAEEDA;border:1px solid #FAC775;border-radius:20px;padding:4px 12px}
+.how-card{background:#fff;border:1px solid #e5e5e5;border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:1.75rem}
+.how-card-title{font-size:11px;font-weight:600;color:#888;letter-spacing:.06em;text-transform:uppercase;margin-bottom:1rem}
+.step-item{display:flex;gap:12px;padding:8px 0;border-bottom:1px solid #f0f0f0;align-items:flex-start}
+.step-item:last-of-type{border-bottom:none;padding-bottom:0}
+.step-item:first-of-type{padding-top:0}
+.step-circle{width:22px;height:22px;border-radius:50%;background:#E6F1FB;border:1px solid #B5D4F4;color:#185FA5;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.step-text{font-size:13px;color:#555;line-height:1.65;flex:1}
+.privacy-row{display:flex;align-items:flex-start;gap:8px;margin-top:1rem;padding-top:1rem;border-top:1px solid #f0f0f0;font-size:12px;color:#999;line-height:1.6}
+.form-section{background:#fff;border:1px solid #e5e5e5;border-radius:12px;padding:1.5rem;margin-bottom:1rem}
+.section-hd{display:flex;align-items:center;gap:10px;margin-bottom:1.5rem}
+.section-badge{width:26px;height:26px;border-radius:50%;background:#E6F1FB;border:1px solid #B5D4F4;color:#185FA5;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.section-hd-title{font-size:15px;font-weight:500;color:#1a1a1a}
+.field{margin-bottom:1.25rem}
+.field:last-child{margin-bottom:0}
+.field label{display:block;font-size:12px;font-weight:600;color:#666;margin-bottom:5px;letter-spacing:.01em}
+.field .hint{font-size:12px;color:#999;margin-bottom:10px;line-height:1.5}
+.field input[type=text],.field select,.field textarea{width:100%;font-size:14px;padding:9px 12px;border-radius:8px;border:1px solid #ddd;background:#fff;color:#1a1a1a;line-height:1.5;font-family:inherit}
+.field input[type=text]:focus,.field select:focus,.field textarea:focus{outline:none;border-color:#378ADD;box-shadow:0 0 0 3px #E6F1FB}
+.field textarea{resize:vertical;min-height:80px;line-height:1.6}
+.field input.err,.field select.err,.field textarea.err{border-color:#E24B4A;box-shadow:0 0 0 3px #FCEBEB}
+.field-err{font-size:12px;color:#A32D2D;margin-top:5px;display:flex;align-items:center;gap:4px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.req{color:#E24B4A;margin-left:2px}
+.score-rows{display:flex;flex-direction:column;gap:6px;margin-bottom:10px}
+.score-row-line{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.score-btn{height:44px;border-radius:8px;border:1px solid #ddd;background:#f5f5f5;font-size:16px;font-weight:500;cursor:pointer;color:#888;transition:all .12s;width:100%;font-family:inherit}
+.score-btn:hover{border-color:#999;color:#1a1a1a;background:#fff}
+.score-btn.sel-green{background:#EAF3DE;color:#27500A;border-color:#97C459}
+.score-btn.sel-red{background:#FCEBEB;color:#791F1F;border-color:#F09595}
+.score-legend{display:flex;justify-content:space-between;font-size:11px;margin-bottom:6px}
+.leg-red{color:#A32D2D}
+.leg-green{color:#3B6D11}
+.score-result{margin-top:4px;border-radius:8px;padding:10px 14px;display:flex;align-items:center;gap:10px;font-size:13px;font-weight:500}
+.score-result.on-track{background:#EAF3DE;border:1px solid #97C459;color:#27500A}
+.score-result.needs-adj{background:#FCEBEB;border:1px solid #F09595;color:#791F1F}
+.adjust-panel{border-radius:12px;border:1px solid #F09595;background:#FCEBEB;padding:1.25rem 1.5rem;margin-top:1.25rem}
+.adjust-hd{display:flex;align-items:center;gap:8px;margin-bottom:.5rem}
+.adjust-hd-title{font-size:13px;font-weight:500;color:#791F1F}
+.adjust-flow{background:#fff;border:1px solid #F7C1C1;border-radius:8px;padding:.75rem 1rem;font-size:12px;color:#993C1D;line-height:1.7;margin-bottom:1.25rem;display:flex;gap:8px;align-items:flex-start}
+.adjust-panel .field label{color:#7F1F1F}
+.adjust-panel .field input,.adjust-panel .field textarea{border-color:#F7C1C1;background:#fff}
+.adjust-panel .field input:focus,.adjust-panel .field textarea:focus{border-color:#E24B4A;box-shadow:0 0 0 3px #FCEBEB}
+.error-summary{background:#FCEBEB;border:1px solid #F09595;border-radius:12px;padding:1rem 1.25rem;margin-top:1.25rem}
+.error-summary-title{font-size:13px;font-weight:500;color:#791F1F;margin-bottom:.6rem}
+.error-list{list-style:none;display:flex;flex-direction:column;gap:5px}
+.error-list li{font-size:13px;color:#A32D2D;padding-left:12px;position:relative;line-height:1.5}
+.error-list li::before{content:"·";position:absolute;left:0;font-weight:700}
+.submit-btn{width:100%;padding:14px;background:#185FA5;color:#fff;border:none;border-radius:12px;font-size:15px;font-weight:500;cursor:pointer;margin-top:1.75rem;font-family:inherit}
+.submit-btn:hover{background:#0C447C}
+.hidden{display:none}
+.success-wrap{text-align:center;padding:4rem 1rem;background:#fff;border-radius:12px;border:1px solid #e5e5e5;margin-top:1rem}
+.success-circle{width:64px;height:64px;border-radius:50%;background:#EAF3DE;border:1px solid #97C459;display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;font-size:28px}
+.success-title{font-size:20px;font-weight:500;color:#1a1a1a;margin-bottom:.5rem}
+.success-sub{font-size:14px;color:#666;line-height:1.8;max-width:380px;margin:0 auto}
+.success-note{font-size:12px;color:#999;margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid #f0f0f0}
+@media(max-width:480px){.two-col{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="page-wrap">
+<div id="form-view">
+
+  <div class="form-hero">
+    <div class="form-hero-eyebrow">&#128200; 年中檢視 · 2026</div>
+    <div class="form-hero-title">OKR 進度自評</div>
+    <div class="form-hero-deadline">&#128336; 填報期間：2026 年 6 月 8 日（一）&#8212; 6 月 26 日（五）16:00</div>
+  </div>
+
+  <div class="how-card">
+    <div class="how-card-title">填寫說明</div>
+    <div class="step-item"><div class="step-circle">1</div><div class="step-text">請在與主管完成年中 1-on-1 會談後再填寫本表單，確認雙方對進度認知一致。</div></div>
+    <div class="step-item"><div class="step-circle">2</div><div class="step-text">對照年初設定的目標，填寫整體進度自評分數（1–10 分）。若自評 <strong>6–10 分</strong>（進度在軌），填完送出即可，無須額外行動。</div></div>
+    <div class="step-item"><div class="step-circle">3</div><div class="step-text">若自評 <strong>1–5 分</strong>，請填寫與主管確認後的 OKR 調整方向，主管口頭核准後更新至正式 OKR 表單並提送 HR。</div></div>
+    <div class="step-item"><div class="step-circle">4</div><div class="step-text">填寫下半年重點項目，協助主管掌握你下半年的聚焦方向。</div></div>
+    <div class="privacy-row">&#128274; 本表單填報資料受部門隔離保護，僅供您的直屬主管與 HR 進行進度追蹤，不對外揭露。</div>
+  </div>
+
+  <div class="form-section">
+    <div class="section-hd"><div class="section-badge">1</div><div class="section-hd-title">基本資訊</div></div>
+    <div class="two-col">
+      <div class="field">
+        <label>姓名 <span class="req">*</span></label>
+        <input type="text" id="f-name" placeholder="請輸入姓名">
+        <div class="field-err hidden" id="err-name">&#9888; 請填寫姓名</div>
+      </div>
+      <div class="field">
+        <label>職稱 <span class="req">*</span></label>
+        <input type="text" id="f-title" placeholder="例：資深工程師">
+        <div class="field-err hidden" id="err-title">&#9888; 請填寫職稱</div>
+      </div>
+    </div>
+    <div class="two-col">
+      <div class="field">
+        <label>部門 <span class="req">*</span></label>
+        <select id="f-dept">
+          <option value="">請選擇部門</option>
+          <option>GMO</option><option>MF</option><option>BD</option>
+          <option>DY1</option><option>DY2</option><option>OM2</option>
+          <option>WS</option><option>B3</option><option>B9</option>
+          <option>EC</option><option>HA</option><option>HASS</option>
+          <option>RF運輸</option><option>TY運輸</option>
+          <option>運能中區</option><option>運能南區</option><option>營運優化</option>
+        </select>
+        <div class="field-err hidden" id="err-dept">&#9888; 請選擇部門</div>
+      </div>
+      <div class="field">
+        <label>直屬主管 <span class="req">*</span></label>
+        <input type="text" id="f-manager" placeholder="請輸入主管姓名">
+        <div class="field-err hidden" id="err-manager">&#9888; 請填寫直屬主管姓名</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-section">
+    <div class="section-hd"><div class="section-badge">2</div><div class="section-hd-title">年中進度自評</div></div>
+    <div class="field">
+      <label>整體進度自評分數 <span class="req">*</span></label>
+      <div class="hint">依年初設定目標評估目前整體達成狀況（1 = 嚴重落後，10 = 超前完成）</div>
+      <div class="score-rows">
+        <div class="score-row-line">
+          <button class="score-btn" id="sb-1" onclick="pick(1)">1</button>
+          <button class="score-btn" id="sb-2" onclick="pick(2)">2</button>
+          <button class="score-btn" id="sb-3" onclick="pick(3)">3</button>
+          <button class="score-btn" id="sb-4" onclick="pick(4)">4</button>
+          <button class="score-btn" id="sb-5" onclick="pick(5)">5</button>
+        </div>
+        <div class="score-row-line">
+          <button class="score-btn" id="sb-6" onclick="pick(6)">6</button>
+          <button class="score-btn" id="sb-7" onclick="pick(7)">7</button>
+          <button class="score-btn" id="sb-8" onclick="pick(8)">8</button>
+          <button class="score-btn" id="sb-9" onclick="pick(9)">9</button>
+          <button class="score-btn" id="sb-10" onclick="pick(10)">10</button>
+        </div>
+      </div>
+      <div class="score-legend">
+        <span class="leg-red">&#9650; 1–5 進度需調整</span>
+        <span class="leg-green">&#10003; 6–10 進度在軌</span>
+      </div>
+      <div class="field-err hidden" id="err-score">&#9888; 請選擇進度自評分數</div>
+      <div id="score-result" class="score-result hidden"></div>
+    </div>
+
+    <div id="behind-block" class="adjust-panel hidden">
+      <div class="adjust-hd"><span style="color:#A32D2D;font-size:16px">&#9888;</span><span class="adjust-hd-title">進度需調整，請補充說明</span></div>
+      <div class="adjust-flow">&#8594; 後續流程：主管確認調整方向 → 更新至正式 OKR 表單 → 提送 HR 存檔。</div>
+      <div class="field">
+        <label>目前面臨的挑戰與影響因素 <span class="req">*</span></label>
+        <div class="hint">請說明造成進度落後或需要調整的主要原因</div>
+        <textarea id="f-blocker" placeholder="例：外部市場環境變化導致業務拓展時程延後，原訂目標需重新評估可行性"></textarea>
+        <div class="field-err hidden" id="err-blocker">&#9888; 請填寫目前面臨的挑戰與影響因素</div>
+      </div>
+      <div class="field" style="margin-bottom:0">
+        <label>與主管確認後的 OKR 調整方向 <span class="req">*</span></label>
+        <div class="hint">請填寫與主管 1-on-1 討論後確認的調整內容，後續將更新至正式 OKR 表單提送 HR</div>
+        <textarea id="f-adjust-detail" placeholder="例：將 KR1 目標值由 100 調整為 70，並延後完成時間至 Q4 末"></textarea>
+        <div class="field-err hidden" id="err-adjust">&#9888; 請填寫與主管確認後的 OKR 調整方向</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-section">
+    <div class="section-hd"><div class="section-badge">3</div><div class="section-hd-title">下半年重點項目</div></div>
+    <div class="field">
+      <label>下半年最重要的 1–2 個衝刺目標 <span class="req">*</span></label>
+      <div class="hint">請簡短描述下半年希望聚焦推進的重點</div>
+      <textarea id="f-h2plan" placeholder="例：完成平台重構上線、將客戶滿意度提升至 4.5 分以上"></textarea>
+      <div class="field-err hidden" id="err-h2plan">&#9888; 請填寫下半年重點項目</div>
+    </div>
+    <div class="field" style="margin-bottom:0">
+      <label>需要主管或跨部門協助的事項</label>
+      <textarea id="f-help" placeholder="選填，如有需要請具體說明"></textarea>
+    </div>
+  </div>
+
+  <div id="error-summary" class="error-summary hidden">
+    <div class="error-summary-title">&#9888; 請補齊以下必填項目後再送出</div>
+    <ul class="error-list" id="error-list"></ul>
+  </div>
+
+  <button class="submit-btn" onclick="submitForm()">送出填報</button>
+</div>
+
+<div id="success-view" class="hidden success-wrap">
+  <div class="success-circle">&#10003;</div>
+  <div class="success-title" id="s-title">填報完成，謝謝你！</div>
+  <div class="success-sub" id="s-sub"></div>
+  <div class="success-note">年中紀錄將作為年底總評核的重要參考依據。</div>
+</div>
+</div>
+
+<script>
+var score=0;
+function pick(n){
+  score=n;
+  for(var i=1;i<=10;i++){
+    var b=document.getElementById('sb-'+i);
+    if(!b)continue;
+    b.classList.remove('sel-green','sel-red');
+    if(i===n)b.classList.add(n<=5?'sel-red':'sel-green');
+  }
+  document.getElementById('err-score').classList.add('hidden');
+  var onTrack=n>=6;
+  var res=document.getElementById('score-result');
+  res.className='score-result '+(onTrack?'on-track':'needs-adj');
+  res.classList.remove('hidden');
+  res.innerHTML=onTrack
+    ?'&#10003; 自評 '+n+' 分，進度在軌，填完送出即可。'
+    :'&#9888; 自評 '+n+' 分，進度需調整，請填寫下方說明。';
+  document.getElementById('behind-block').classList.toggle('hidden',onTrack);
+}
+function setErr(errId,inputId,show){
+  var e=document.getElementById(errId);
+  var inp=inputId?document.getElementById(inputId):null;
+  if(show){e.classList.remove('hidden');if(inp)inp.classList.add('err');}
+  else{e.classList.add('hidden');if(inp)inp.classList.remove('err');}
+}
+function submitForm(){
+  var errors=[];
+  var name=document.getElementById('f-name').value.trim();
+  var ftitle=document.getElementById('f-title').value.trim();
+  var dept=document.getElementById('f-dept').value;
+  var manager=document.getElementById('f-manager').value.trim();
+  var h2plan=document.getElementById('f-h2plan').value.trim();
+  if(!name){errors.push('姓名');setErr('err-name','f-name',true);}else{setErr('err-name','f-name',false);}
+  if(!ftitle){errors.push('職稱');setErr('err-title','f-title',true);}else{setErr('err-title','f-title',false);}
+  if(!dept){errors.push('部門');setErr('err-dept','f-dept',true);}else{setErr('err-dept','f-dept',false);}
+  if(!manager){errors.push('直屬主管');setErr('err-manager','f-manager',true);}else{setErr('err-manager','f-manager',false);}
+  if(!score){errors.push('進度自評分數');setErr('err-score',null,true);}else{setErr('err-score',null,false);}
+  if(score>0&&score<=5){
+    var blocker=document.getElementById('f-blocker').value.trim();
+    var adjust=document.getElementById('f-adjust-detail').value.trim();
+    if(!blocker){errors.push('目前面臨的挑戰與影響因素');setErr('err-blocker','f-blocker',true);}else{setErr('err-blocker','f-blocker',false);}
+    if(!adjust){errors.push('與主管確認後的 OKR 調整方向');setErr('err-adjust','f-adjust-detail',true);}else{setErr('err-adjust','f-adjust-detail',false);}
+  }
+  if(!h2plan){errors.push('下半年重點項目');setErr('err-h2plan','f-h2plan',true);}else{setErr('err-h2plan','f-h2plan',false);}
+  var summary=document.getElementById('error-summary');
+  var list=document.getElementById('error-list');
+  if(errors.length>0){
+    list.innerHTML=errors.map(function(e){return'<li>'+e+'</li>';}).join('');
+    summary.classList.remove('hidden');
+    return;
+  }
+  summary.classList.add('hidden');
+  var onTrack=score>=6;
+  document.getElementById('s-title').textContent=name+'，填報完成！';
+  document.getElementById('s-sub').innerHTML=onTrack
+    ?'進度自評 <strong>'+score+' 分</strong>，進度順利在軌。<br>感謝你的配合，現在可以關閉此頁面。'
+    :'進度自評 <strong>'+score+' 分</strong>，調整說明已記錄。<br>請記得將調整後的 OKR 更新至正式表單後提送 HR。';
+  document.getElementById('form-view').classList.add('hidden');
+  document.getElementById('success-view').classList.remove('hidden');
+}
+</script>
+</body>
+</html>
